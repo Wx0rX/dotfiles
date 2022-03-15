@@ -1,0 +1,1 @@
+echo '[ { "key": "ctrl+`", "command": "workbench.action.terminal.focus" }, { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus" } ]' > ~/.config/Code\ -\ OSS/User/keybindings.json
