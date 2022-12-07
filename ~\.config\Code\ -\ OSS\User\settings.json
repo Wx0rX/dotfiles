@@ -16,5 +16,9 @@
     "editor.minimap.enabled": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "workbench.colorTheme": "Monokai",
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+    "python.defaultInterpreterPath": "/bin/python",
+    "python.linting.enabled": true,
+    "editor.cursorStyle": "block"
 }
+
