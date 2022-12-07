@@ -125,6 +125,12 @@ alias pacmanupdatemirrors='sudo pacman-mirrors --geoip'
 
 alias ssh_yandex_ogu='ssh root@yandex1.uc.osu.ru -p 8080'
 
+
+histdeln() {
+    history -d -$(($1 + 1))--1;
+}
+
+
 ### WINE PROGRAMS
 
 alias microsoft_paint='env WINEARCH=win32 WINEPREFIX=/home/funky.msoffice wine /home/funky.msoffice/drive_c/windows/mspaint.exe'
