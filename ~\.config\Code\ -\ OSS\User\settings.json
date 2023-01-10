@@ -9,16 +9,22 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "python.linting.flake8Enabled": true,
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+
+    "clang-format.executable": "/usr/bin/clang-format",
+    "clang-format.style": "{BasedOnStyle: LLVM, IndentWidth: 4}",
+
     "editor.minimap.enabled": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "workbench.colorTheme": "Monokai",
     "telemetry.telemetryLevel": "off",
     "python.defaultInterpreterPath": "/bin/python",
+    "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "editor.cursorStyle": "block"
 }
-
