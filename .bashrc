@@ -125,11 +125,60 @@ alias pacmanupdatemirrors='sudo pacman-mirrors --geoip'
 
 alias ssh_yandex_ogu='ssh root@yandex1.uc.osu.ru -p 8080'
 
-
 histdeln() {
-    history -d -$(($1 + 1))--1;
+    history -d -$(($1 + 1))--1
 }
 
+# SECTION "FUNCTIONS FOR OLYMPIAD PROGRAMMING" BEGIN
+PREPAREDIRS() {
+    cptemplate=0; [[ -f ~/cppOlympTemplate.cpp && ! -f $name/$name.cpp ]] && cptemplate=1;
+    for name in $@;
+    do
+        mkdir -p $name
+        if [[ $cptemplate ]]
+        then
+            cp -n ~/cppOlympTemplate.cpp $name/$name.cpp
+        else
+            touch $name/$name.cpp
+        fi
+    done
+}
+
+TESTAOUT() {
+    if [[ ! -f a.out ]]
+    then
+        echo "Sorry, there\'s nothing to test, \"a.out\" file is not provided"
+        return 1
+    fi
+    if [[ $# -eq 0 ]]
+    then
+        echo "Please, provide a numeric argument \"i\", create file named \"in{i}\", then call \"TESTAOUT {i}\""
+        return 1
+    fi
+    if [[ ! -f in$1 ]]
+    then
+        echo "Please, create \"in$1\" file, contents of which will be piped to your ./a.out execution"
+        return 1
+    fi
+    echo INPUT$1.TXT
+    cat in$1
+    cat in$1 | ./a.out > out || return 1
+    echo OUTPUT$1.TXT
+    cat out
+    if [[ -f out$1 ]]
+    then
+        echo DIFF$1.TXT
+        diff out out$1
+    fi
+}
+
+INRANGETEST() {
+    for name in $(seq $1 $2 || return 1);
+    do
+        TESTAOUT $name || return 1
+    done
+}
+# SECTION "FUNCTIONS FOR OLYMPIAD PROGRAMMING" END
 
 ### WINE PROGRAMS
 
