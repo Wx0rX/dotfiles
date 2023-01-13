@@ -31,6 +31,8 @@ template <class T> istream &operator>>(istream &is, vector<T> &arr) {
     return is;
 }
 
+// mt19937 rnd(chrono::high_resolution_clock().now().time_since_epoch().count());
+
 signed main() {
     return 0;
 }
