@@ -25,10 +25,20 @@ using namespace std;
 
 constexpr int INF = numeric_limits<int>::max() >> 1;
 
-template <class T> istream &operator>>(istream &is, vector<T> &arr) {
-    for (auto &a : arr)
-        is >> a;
+template <class T> istream &operator>>(istream &is, vector<T> &a) {
+    for (auto &item : a)
+        is >> item;
     return is;
+}
+
+template <class T> ostream &operator<<(ostream &os, vector<T> &a) {
+    size_t n = a.size();
+    for (size_t i = 0; i < n; ++i) {
+        if (i)
+            os << ' ';
+        os << a[i];
+    }
+    return os;
 }
 
 /*
