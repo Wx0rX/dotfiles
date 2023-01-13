@@ -160,22 +160,23 @@ TESTAOUT() {
         echo "Please, create \"in$1\" file, contents of which will be piped to your ./a.out execution"
         return 1
     fi
-    echo INPUT$1.TXT
+    echo -----INPUT$1.TXT-----
     cat in$1
     cat in$1 | ./a.out > out || return 1
-    echo OUTPUT$1.TXT
+    echo -----OUTPUT$1.TXT-----
     cat out
     if [[ -f out$1 ]]
     then
-        echo DIFF$1.TXT
+        echo -----DIFF$1.TXT-----
         diff out out$1
     fi
 }
 
 INRANGETEST() {
-    for name in $(seq $1 $2 || return 1);
+    for num in $(seq $1 $2 || return 1);
     do
-        TESTAOUT $name || return 1
+        echo ----------TEST\ CASE\ $num----------
+        TESTAOUT $num || return 0
     done
 }
 # SECTION "FUNCTIONS FOR OLYMPIAD PROGRAMMING" END
