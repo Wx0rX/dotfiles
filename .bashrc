@@ -153,7 +153,7 @@ alias GSETTINGS_CHANGE_CAPS_TO_CAPS="change_capslock_to caps"
 
 # SECTION "FUNCTIONS FOR OLYMPIAD PROGRAMMING" BEGIN
 PREPAREDIRS() {
-    cptemplate=0; [[ -f ~/cppOlympTemplate.cpp && ! -f $name/$name.cpp ]] && cptemplate=1;
+    cptemplate=0; [[ -f ~/cppOlympTemplate.cpp ]] && cptemplate=1;
     for name in $@;
     do
         mkdir -p $name
