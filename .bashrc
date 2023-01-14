@@ -129,6 +129,28 @@ histdeln() {
     history -d -$(($1 + 1))--1
 }
 
+# SECTION "CAPSLOCK GSETTINGS" BEGIN
+change_capslock_to() {
+    if [[ $# -ne 1 ]]
+    then
+        echo "Please, provide one argument to change caps lock behaviour"
+        evdev_lst="/usr/share/X11/xkb/rules/evdev.lst"
+        if [[ -f $evdev_lst ]]
+        then
+            echo "These are the options for the replacement: (provide a key when the option is \"caps:{key}\")"
+            grep -a "caps:" $evdev_lst
+        fi
+        return 1
+    fi
+    gsettings set org.gnome.desktop.input-sources xkb-options \[\'caps:$1\'\]
+    echo "Caps lock behaviour was successfully changed!"
+}
+
+alias GSETTINGS_CHANGE_CAPS_TO_HYPER="change_capslock_to hyper"
+alias GSETTINGS_CHANGE_CAPS_TO_DISABLED="change_capslock_to none"
+alias GSETTINGS_CHANGE_CAPS_TO_CAPS="change_capslock_to caps"
+# SECTION "CAPSLOCK GSETTINGS" END
+
 # SECTION "FUNCTIONS FOR OLYMPIAD PROGRAMMING" BEGIN
 PREPAREDIRS() {
     cptemplate=0; [[ -f ~/cppOlympTemplate.cpp && ! -f $name/$name.cpp ]] && cptemplate=1;
