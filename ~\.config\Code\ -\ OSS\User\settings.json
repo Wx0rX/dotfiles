@@ -15,6 +15,9 @@
     "[cpp]": {
         "editor.defaultFormatter": "xaver.clang-format"
     },
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
 
     "clang-format.executable": "/usr/bin/clang-format",
     "clang-format.style": "{BasedOnStyle: LLVM, IndentWidth: 4}",
@@ -26,5 +29,13 @@
     "python.defaultInterpreterPath": "/bin/python",
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
-    "editor.cursorStyle": "block"
+    "editor.cursorStyle": "block",
+
+    "workbench.editorAssociations": {
+        "*.hex": "hexEditor.hexedit",
+        "*.ini": "hexEditor.hexedit"
+    },
+    "hexeditor.inspectorType": "sidebar",
+
+    "security.workspace.trust.untrustedFiles": "open"
 }
