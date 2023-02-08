@@ -96,7 +96,7 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 alias nano="nano -i"
-alias lsa="ls -a"
+alias lsa="ls -la"
 alias cle="clear"
 alias shut="sudo shutdown -h now"
 alias vsc="code"
@@ -113,17 +113,24 @@ alias gitrestore="git restore"
 alias gitdiff="git diff"
 alias gitcheckout="git checkout"
 alias gitpull="git pull"
-alias rm_pycache="find . -type d -name '__pycache__' -exec rm -r {} \; > /dev/null 2>&1"
+alias gitfetch="git fetch"
 alias temp_monitor="sudo hddtemp -d /dev/sda && psensor"
 alias xsc='xclip -sel clip'
-alias qtdesigner="/home/funky.local/lib/python3.9/site-packages/qt5_applications/Qt/bin/designer"
 alias sqlstudio="sqlitestudio"
 alias youtube-dl-aria2c='youtube-dl -k -f best --external-downloader aria2c --external-downloader-args "-j 16 -x 16 -s 16 -k 1M"'
 alias youtube-dl-mp3='youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0'
 
 alias pacmanupdatemirrors='sudo pacman-mirrors --geoip'
 
-alias ssh_yandex_ogu='ssh root@yandex1.uc.osu.ru -p 8080'
+rm_pycache() {
+    if [[ $# -ne 1 ]]
+    then
+        echo "Please, provide one positive integer, which will be passed to \"find\" as \"-maxdepth\" argument"
+        return 1
+    fi
+    find . -mindepth 1 -maxdepth $1 -type d -name '__pycache__' -exec rm -r {} \; > /dev/null 2>&1
+    echo "__pycache__ directories with depth <= $1 were successfully deleted!"
+}
 
 histdeln() {
     history -d -$(($1 + 1))--1
@@ -153,13 +160,14 @@ alias GSETTINGS_CHANGE_CAPS_TO_CAPS="change_capslock_to caps"
 
 # SECTION "FUNCTIONS FOR OLYMPIAD PROGRAMMING" BEGIN
 PREPAREDIRS() {
-    cptemplate=0; [[ -f ~/cppOlympTemplate.cpp ]] && cptemplate=1;
+    template_path="~/cppOlympTemplate.cpp"
+    cptemplate=0; [[ -f $template_path ]] && cptemplate=1;
     for name in $@;
     do
         mkdir -p $name
         if [[ $cptemplate ]]
         then
-            cp -n ~/cppOlympTemplate.cpp $name/$name.cpp
+            cp -n $template_path $name/$name.cpp
         else
             touch $name/$name.cpp
         fi
