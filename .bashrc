@@ -114,6 +114,10 @@ alias gitdiff="git diff"
 alias gitcheckout="git checkout"
 alias gitpull="git pull"
 alias gitfetch="git fetch"
+alias gitfetchallprune="git fetch --all --prune"
+
+alias flake8-exclude="flake8 . --count --show-source --statistics --exclude "
+
 alias temp_monitor="sudo hddtemp -d /dev/sda && psensor"
 alias xsc='xclip -sel clip'
 alias sqlstudio="sqlitestudio"
@@ -121,6 +125,25 @@ alias youtube-dl-aria2c='youtube-dl -k -f best --external-downloader aria2c --ex
 alias youtube-dl-mp3='youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0'
 
 alias pacmanupdatemirrors='sudo pacman-mirrors --geoip'
+
+# only for xorg installations. requires imagemagick
+# screenshow_root_window() {
+#     if [[ $# -ne 1 ]]
+#     then
+#         echo "Please, provide one filename of destination screenshot image"
+#         return 1
+#     fi
+#     import -window root $1
+# }
+
+pip-list-package-dependencies() {
+    if [[ $# -ne 1 ]]
+    then
+        echo "Please, provide one already installed package name, which dependencies you want to list"
+        return 1
+    fi
+    python3 -c "(lambda pkg_name: print(*map(str, (wrkset.requires() if hasattr((wrkset := __import__('importlib').import_module('pip._vendor.pkg_resources', package='pip').working_set.by_key.get(pkg_name)), 'requires') else (f'Please install {pkg_name} to do this operation',))), sep='\n'))('$1'.lower())"
+}
 
 rm_pycache() {
     if [[ $# -ne 1 ]]
