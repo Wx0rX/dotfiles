@@ -101,6 +101,8 @@ alias cle="clear"
 alias shut="sudo shutdown -h now"
 alias vsc="code"
 alias py="python3"
+alias batall="bat -P"
+
 alias gitstatus="git status"
 alias gitlog="git log"
 alias gitlogallgraph="git log --all --graph --abbrev-commit"
