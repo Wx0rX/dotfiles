@@ -126,6 +126,8 @@ alias sqlstudio="sqlitestudio"
 alias youtube-dl-aria2c='youtube-dl -k -f best --external-downloader aria2c --external-downloader-args "-j 16 -x 16 -s 16 -k 1M"'
 alias youtube-dl-mp3='youtube-dl -i --extract-audio --audio-format mp3 --audio-quality 0'
 
+alias catproject="tree && find . -type f -exec printf '=%.0s' {1..126} \; -exec echo \; -exec echo {} \; -exec printf '=%.0s' {1..126} \; -exec echo \; -exec bat -P --color=always --decorations=never {} \; -exec echo \;"
+
 alias pacmanupdatemirrors='sudo pacman-mirrors --geoip'
 
 # only for xorg installations. requires imagemagick
