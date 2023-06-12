@@ -1,0 +1,27 @@
+font:
+  normal:
+    family: monospace
+    style: Regular
+  bold:
+    family: monospace
+    style: Bold
+  italic:
+    family: monospace
+    style: Italic
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+  size: 13
+
+cursor:
+ style:
+  shape: Block
+  blinking: Always
+ vi_mode_style: None
+ blink_interval: 500
+ blink_timeout: 0
+ unfocused_hollow: true
+
+import:
+ - ~/.config/alacritty/themes/gnome_terminal_REDACTED.yaml
+
