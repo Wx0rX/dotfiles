@@ -140,6 +140,13 @@ alias pacmanupdatemirrors='sudo pacman-mirrors --geoip'
 #     import -window root $1
 # }
 
+mkcd() {
+    if [[ $# -eq 1 ]]
+    then
+        mkdir $1 && cd $1
+    fi
+}
+
 pip-list-package-dependencies() {
     if [[ $# -ne 1 ]]
     then
