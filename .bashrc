@@ -143,7 +143,7 @@ alias pacmanupdatemirrors='sudo pacman-mirrors --geoip'
 mkcd() {
     if [[ $# -eq 1 ]]
     then
-        mkdir $1 && cd $1
+        mkdir -p $1 && cd $1
     fi
 }
 
