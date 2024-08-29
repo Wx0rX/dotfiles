@@ -14,6 +14,7 @@ def ATTACH_GDB():
     # # noaslr
     # b *main
     # b *(0x0000555555554000+0x1337)
+    # b *(0x00007ffff7fb6000+0x1337)
     c
     """)
 # exploit:
