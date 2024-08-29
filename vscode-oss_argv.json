@@ -21,10 +21,6 @@
 	// Allows to disable crash reporting.
 	// Should restart the app if the value is changed.
 	"enable-crash-reporter": true,
-
-	// Unique id used for correlating crash reports sent from this instance.
-	// Do not edit this value.
-	"crash-reporter-id": "b3f7ac9d-90ad-4b0d-8131-e816d1920d0f",
   // FOR JUPYTER NOT TO CRASH
 	"enable-proposed-api": ["ms-toolsai.jupyter", "GitHub.vscode-pull-request-github"]
 }
