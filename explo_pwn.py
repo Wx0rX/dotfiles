@@ -19,5 +19,5 @@ def ATTACH_GDB():
 # exploit:
 with (w.process(["./ld-linux-x86-64.so.2",EP],env={"LD_PRELOAD":LP}) if w.args.LOCAL else w.remote("127.0.0.1",5000)) as io:
     ATTACH_GDB()
-
+    # print(f"[+]: {leak = :#x}")
     io.inter()
