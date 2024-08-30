@@ -3,7 +3,7 @@
 import pathlib
 import pwn as w
 w.context.update(encoding="utf-8",bits=64,arch="amd64",terminal=["tmux","splitw","-h"])
-w.tube.sla=w.tube.sendlineafter;w.tube.sa=w.tube.sendafter;w.tube.sl=w.tube.sendline;w.tube.ru=w.tube.recvuntil;w.tube.rl=w.tube.recvline;w.tube.inter=w.tube.interactive
+w.tube.sla=w.tube.sendlineafter;w.tube.sa=w.tube.sendafter;w.tube.sl=w.tube.sendline;w.tube.ru=w.tube.recvuntil;w.tube.rl=w.tube.recvline;w.tube.rls=w.tube.recvlines;w.tube.rgx=w.tube.recvregex;w.tube.inter=w.tube.interactive
 EP = "./patched_chall"
 LP = "./libc.so.6"
 elf = w.ELF(EP)  # if w.args.LOCAL else ...
