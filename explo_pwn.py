@@ -7,10 +7,9 @@ w.tube.sla=w.tube.sendlineafter;w.tube.sa=w.tube.sendafter;w.tube.sl=w.tube.send
 w.ELF.base=w.ELF.addr=w.ELF.address
 ELF = w.ELF("./patched_chall")
 LIBC = w.ELF("./lib/libc.so.6")  # 2.3?
-# LIBSTDC = w.ELF("./lib/libstdc++.so.6")
+# LIBSTDCPP = w.ELF("./lib/libstdc++.so.6")
 LD = w.ELF("./lib/ld-linux-x86-64.so.2")
 # wrapper:
-
 # launch:
 SREMOTE=lambda:w.remote("127.0.0.1",54321)
 # SLOCAL=lambda:w.process([LD.file.name,ELF.file.name],env={"LD_PRELOAD":LIBC.file.name})
