@@ -147,6 +147,11 @@ mkcd() {
     fi
 }
 
+function swap() {
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+}
+
 pip-list-package-dependencies() {
     if [[ $# -ne 1 ]]
     then
