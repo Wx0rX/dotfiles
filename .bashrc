@@ -152,6 +152,10 @@ function swap() {
     mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
 }
 
+hx() {
+    printf %#x $[$*] | tee >(xclip -sel clip); echo
+}
+
 pip-list-package-dependencies() {
     if [[ $# -ne 1 ]]
     then
